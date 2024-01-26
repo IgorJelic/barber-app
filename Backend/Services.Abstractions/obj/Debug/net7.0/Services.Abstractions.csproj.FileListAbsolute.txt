@@ -1,0 +1,11 @@
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\bin\Debug\net7.0\Services.Abstractions.deps.json
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\bin\Debug\net7.0\Services.Abstractions.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\bin\Debug\net7.0\Services.Abstractions.pdb
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\Services.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\Services.Abstractions.AssemblyInfoInputs.cache
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\Services.Abstractions.AssemblyInfo.cs
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\Services.Abstractions.csproj.CoreCompileInputs.cache
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\Services.Abstractions.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\refint\Services.Abstractions.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\Services.Abstractions.pdb
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\ref\Services.Abstractions.dll

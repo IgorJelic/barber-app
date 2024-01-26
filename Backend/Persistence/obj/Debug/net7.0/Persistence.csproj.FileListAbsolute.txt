@@ -1,0 +1,11 @@
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\bin\Debug\net7.0\Persistence.deps.json
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\bin\Debug\net7.0\Persistence.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\bin\Debug\net7.0\Persistence.pdb
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistence.AssemblyInfoInputs.cache
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistence.AssemblyInfo.cs
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistence.csproj.CoreCompileInputs.cache
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistence.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\refint\Persistence.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistence.pdb
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\ref\Persistence.dll

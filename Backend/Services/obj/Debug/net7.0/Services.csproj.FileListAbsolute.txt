@@ -1,0 +1,11 @@
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\bin\Debug\net7.0\Services.deps.json
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\bin\Debug\net7.0\Services.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\bin\Debug\net7.0\Services.pdb
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\obj\Debug\net7.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\obj\Debug\net7.0\Services.AssemblyInfoInputs.cache
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\obj\Debug\net7.0\Services.AssemblyInfo.cs
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\obj\Debug\net7.0\Services.csproj.CoreCompileInputs.cache
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\obj\Debug\net7.0\Services.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\obj\Debug\net7.0\refint\Services.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\obj\Debug\net7.0\Services.pdb
+D:\Igor\Faks\Projekti\barber-app\Backend\Services\obj\Debug\net7.0\ref\Services.dll
