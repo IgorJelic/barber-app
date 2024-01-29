@@ -9,3 +9,11 @@ D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistenc
 D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\refint\Persistence.dll
 D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistence.pdb
 D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\ref\Persistence.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\bin\Debug\net7.0\Persistence.runtimeconfig.json
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\bin\Debug\net7.0\Domain.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\bin\Debug\net7.0\Shared.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\bin\Debug\net7.0\Domain.pdb
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\bin\Debug\net7.0\Shared.pdb
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistence.csproj.AssemblyReference.cache
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistence.csproj.CopyComplete
+D:\Igor\Faks\Projekti\barber-app\Backend\Persistence\obj\Debug\net7.0\Persistence.genruntimeconfig.cache

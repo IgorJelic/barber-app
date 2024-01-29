@@ -1,11 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
+ConfigurationManager configuration = builder.Configuration;
+IWebHostEnvironment env = builder.Environment;
+const string _cors = "cors";
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContextPool<RepositoryDbContext>(builder =>
+{
+    var connectionString = configuration.GetConnectionString("Database");
+    builder.UseSqlServer(connectionString, b => b.MigrationsAssembly("Persistence"));
+});
 
 var app = builder.Build();
 

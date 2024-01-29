@@ -6,5 +6,5 @@ namespace Domain.Repository;
 public interface IBarberRepository
 {
     List<Barber> GetAll();
-    List<Barber> GetById(Guid barberId);
+    Barber GetById(Guid barberId);
 }
