@@ -101,6 +101,9 @@
             "projectReferences": {
               "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Domain\\Domain.csproj": {
                 "projectPath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Domain\\Domain.csproj"
+              },
+              "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Shared\\Shared.csproj": {
+                "projectPath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Shared\\Shared.csproj"
               }
             }
           }

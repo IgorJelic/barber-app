@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "4hWgx9dtidGJVQbKSbDuR+UakIpT+S6yJcELonzkVijdSNE2zsxz55r/Z5D0zgKpYC59c4/c9RdYu6fgZGMJXQ==",
+  "dgSpecHash": "v9WXu7v2iLfMYyZFya6IW9V8p7/YDGNqKmZLn681drpgEVrIqmuevRr7oGe9sEcUGlSwn+6Aiq05e9oMGjgP/w==",
   "success": true,
   "projectFilePath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services\\Services.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Igor\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",
+    "C:\\Users\\Igor\\.nuget\\packages\\mapster.core\\1.2.1\\mapster.core.1.2.1.nupkg.sha512"
+  ],
   "logs": []
 }

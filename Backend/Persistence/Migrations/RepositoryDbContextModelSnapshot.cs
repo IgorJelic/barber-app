@@ -45,6 +45,8 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BarberId");
+
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Appointments");
@@ -55,6 +57,9 @@ namespace Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -103,6 +108,12 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Appointment", b =>
                 {
+                    b.HasOne("Domain.Entities.Barber", null)
+                        .WithMany("MyAppointments")
+                        .HasForeignKey("BarberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Domain.Entities.Customer", "Customer")
                         .WithMany("MyAppointments")
                         .HasForeignKey("CustomerId")
@@ -110,6 +121,11 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Barber", b =>
+                {
+                    b.Navigation("MyAppointments");
                 });
 
             modelBuilder.Entity("Domain.Entities.Customer", b =>
