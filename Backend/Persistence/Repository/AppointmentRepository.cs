@@ -1,5 +1,6 @@
 using Domain.Entities;
 using Domain.Repository;
+using Microsoft.EntityFrameworkCore;
 using Shared.FilterObjects;
 
 namespace Persistence.Repository;
@@ -14,14 +15,16 @@ public class AppointmentRepository : IAppointmentRepository
 
     public List<Appointment> GetAll(AppointmentFilterObject? filterObject, Guid? customerId, Guid? barberId)
     {
-        IQueryable<Appointment> appointments = _dbContext.Appointments;
+        IQueryable<Appointment> appointments = _dbContext.Appointments
+                                                .Include(a => a.Barber)
+                                                .Include(a => a.Customer);
 
         appointments = customerId.HasValue
             ? appointments.Where(a => a.Customer.Id == customerId)
             : appointments;
 
         appointments = barberId.HasValue
-            ? appointments.Where(a => a.BarberId == barberId)
+            ? appointments.Where(a => a.Barber.Id == barberId)
             : appointments;
 
         if (filterObject is null) return appointments.ToList();
@@ -38,7 +41,10 @@ public class AppointmentRepository : IAppointmentRepository
 
     public Appointment GetById(Guid appointmentId)
     {
-        return _dbContext.Appointments.FirstOrDefault(x => x.Id == appointmentId)!;
+        return _dbContext.Appointments
+            .Include(a => a.Customer)
+            .Include(a => a.Barber)
+            .FirstOrDefault(x => x.Id == appointmentId)!;
     }
 
     public void Insert(Appointment appointment)
@@ -46,7 +52,7 @@ public class AppointmentRepository : IAppointmentRepository
         var exists = _dbContext.Appointments.Any(
             (x =>
             x.AppointmentTime == appointment.AppointmentTime &&
-            x.BarberId == appointment.BarberId));
+            x.Barber.Id == appointment.Barber.Id));
 
         if (!exists) _dbContext.Appointments.Add(appointment);
     }
