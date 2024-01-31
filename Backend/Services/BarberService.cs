@@ -1,3 +1,4 @@
+using Domain.Entities;
 using Domain.Repository;
 using Mapster;
 using Services.Abstractions;
@@ -14,11 +15,11 @@ public class BarberService : IBarberService
         _repositoryManager = repositoryManager;
     }
 
-    public List<BarberDto> GetAllBarbers(BarberFilterObject filterObject)
+    public (int barbersCount, List<BarberDto> barbers) GetAllBarbers(BarberFilterObject filterObject)
     {
-        var barbers = _repositoryManager.BarberRepository.GetAll(filterObject);
+        var (barbersCount, barbers) = _repositoryManager.BarberRepository.GetAll(filterObject);
 
-        return barbers.Adapt<List<BarberDto>>();
+        return (barbersCount, barbers.Adapt<List<BarberDto>>());
     }
 
     public BarberDto GetBarberById(Guid barberId)

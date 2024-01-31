@@ -1,5 +1,9 @@
+using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Persistence.Repository;
+using Services;
+using Services.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -17,6 +21,10 @@ builder.Services.AddDbContextPool<RepositoryDbContext>(builder =>
     var connectionString = configuration.GetConnectionString("Database");
     builder.UseSqlServer(connectionString, b => b.MigrationsAssembly("Persistence"));
 });
+
+// My Services
+builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
+builder.Services.AddScoped<IServiceManager, ServiceManager>();
 
 var app = builder.Build();
 

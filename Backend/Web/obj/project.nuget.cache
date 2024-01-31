@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "cS334wc5HotaTdzkpzfeUdHo1f97jVbI4DJIKl6C3S+ZMCpbtr4g0400q3uAN0OVr3QsxnsxbVRDBSISzSBInQ==",
+  "dgSpecHash": "U+y3uzGtf6pN5mod8vSY917HNTY9XPehGgJNjJqCJ96TrWfhi0H/O3Y0GnfEJEp4cE/PV9XnX2icgnXR+ADpHA==",
   "success": true,
   "projectFilePath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Web\\Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Igor\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Igor\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",
+    "C:\\Users\\Igor\\.nuget\\packages\\mapster.core\\1.2.1\\mapster.core.1.2.1.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -12,11 +12,12 @@ public class BarberRepository : IBarberRepository
         _dbContext = dbContext;
     }
 
-    public List<Barber> GetAll(BarberFilterObject? filterObject)
+    public (int, List<Barber>) GetAll(BarberFilterObject? filterObject)
     {
         IQueryable<Barber> barbers = _dbContext.Barbers;
 
-        if (filterObject is null) return barbers.ToList();
+        if (filterObject is null)
+            return (barbers.Count(), barbers.ToList());
 
         if (filterObject.Gender is not null)
             barbers = barbers.Where(b => b.Gender == filterObject.Gender);
@@ -35,6 +36,8 @@ public class BarberRepository : IBarberRepository
                 : barbers.OrderBy(barber => barber.CalculateRating());
         }
 
+        int barbersCount = barbers.Count();
+
         // Pagination
         if ((filterObject.PageNumber is not null) && (filterObject.PageSize is not null))
         {
@@ -42,11 +45,11 @@ public class BarberRepository : IBarberRepository
                              .Take((short)filterObject.PageSize);
         }
 
-        return barbers.ToList();
+        return (barbersCount, barbers.ToList());
     }
 
     public Barber GetById(Guid barberId)
     {
-        return _dbContext.Barbers.FirstOrDefault(x => x.Id == barberId);
+        return _dbContext.Barbers.FirstOrDefault(x => x.Id == barberId)!;
     }
 }

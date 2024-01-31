@@ -9,3 +9,7 @@ D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\
 D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\refint\Services.Abstractions.dll
 D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\Services.Abstractions.pdb
 D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\ref\Services.Abstractions.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\bin\Debug\net7.0\Shared.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\bin\Debug\net7.0\Shared.pdb
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\Services.Abstractions.csproj.AssemblyReference.cache
+D:\Igor\Faks\Projekti\barber-app\Backend\Services.Abstractions\obj\Debug\net7.0\Services.Abstractions.csproj.CopyComplete
