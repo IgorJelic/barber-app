@@ -2,6 +2,7 @@ using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Persistence.Repository;
+using Presentation;
 using Services;
 using Services.Abstractions;
 
@@ -12,7 +13,9 @@ const string _cors = "cors";
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddApplicationPart(typeof(PresentationAssemblyReference).Assembly);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

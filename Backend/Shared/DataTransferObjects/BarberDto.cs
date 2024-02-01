@@ -8,6 +8,6 @@ public class BarberDto
     public string Username { get; set; }
     public string Password { get; set; }
     public Gender Gender { get; set; }
-    public List<AppointmentDto> MyAppointments { get; set; } = new List<AppointmentDto>();
+    public List<AppointmentDto> MyAppointments { get; set; }
     public bool IsDeleted { get; set; } = false;
 }

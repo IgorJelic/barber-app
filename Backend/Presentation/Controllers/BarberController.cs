@@ -10,7 +10,7 @@ namespace Presentation.Controllers;
 public class BarberController : ControllerBase
 {
     private readonly int DEFAULT_PAGE_SIZE = 4;
-    private readonly int DEFAULT_PAGE_NUMBER = 4;
+    private readonly int DEFAULT_PAGE_NUMBER = 1;
     private readonly IServiceManager _serviceManager;
     public BarberController(IServiceManager serviceManager)
     {
@@ -20,17 +20,27 @@ public class BarberController : ControllerBase
     [HttpGet]
     public ActionResult<List<BarberDto>> GetBarbers([FromQuery] BarberFilterObject? filterObject)
     {
-        var data = _serviceManager.BarberService.GetAllBarbers(filterObject);
+        var (barbersCount, barbers) = _serviceManager.BarberService.GetAllBarbers(filterObject);
 
         int pageSize = filterObject?.PageSize ?? DEFAULT_PAGE_SIZE;
-        int pageCount = (int)Math.Ceiling(data.barbersCount / (double)pageSize);
+        int pageCount = (int)Math.Ceiling(barbersCount / (double)pageSize);
         int pageNumber = filterObject?.PageNumber ?? DEFAULT_PAGE_NUMBER;
 
         return Ok(new
         {
-            Barbers = data.barbers,
+            Barbers = barbers,
             Pages = pageCount,
             PageNumber = pageNumber
         });
+    }
+
+    [HttpGet("{id}")]
+    public ActionResult<BarberDto> GetBarberById(Guid id)
+    {
+        var barberDto = _serviceManager.BarberService.GetBarberById(id);
+
+        if (barberDto is null) return NotFound(string.Format("Barber with id '{0}' does not exist.", id));
+
+        return Ok(barberDto);
     }
 }

@@ -7,8 +7,8 @@ public class Customer
     public string Password { get; set; }
     public string Email { get; set; }
     public bool Activated { get; set; }
-    
-    public List<Appointment> MyAppointments { get; set; }
+
+    public List<Appointment> MyAppointments { get; set; } = new List<Appointment>();
     public bool IsDeleted { get; set; }
-    
+
 }

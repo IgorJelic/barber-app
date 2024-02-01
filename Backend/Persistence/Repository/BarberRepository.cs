@@ -1,5 +1,6 @@
 using Domain.Entities;
 using Domain.Repository;
+using Microsoft.EntityFrameworkCore;
 using Shared.FilterObjects;
 
 namespace Persistence.Repository;
@@ -14,7 +15,7 @@ public class BarberRepository : IBarberRepository
 
     public (int, List<Barber>) GetAll(BarberFilterObject? filterObject)
     {
-        IQueryable<Barber> barbers = _dbContext.Barbers;
+        IQueryable<Barber> barbers = _dbContext.Barbers.Include(b => b.MyAppointments);
 
         if (filterObject is null)
             return (barbers.Count(), barbers.ToList());
