@@ -1,4 +1,6 @@
 using Domain.Repository;
+using Microsoft.Extensions.Options;
+using Persistence.Configurations;
 
 namespace Persistence.Repository;
 
@@ -9,9 +11,9 @@ public class RepositoryManager : IRepositoryManager
     private readonly IAppointmentRepository _appointmentRepository;
     private readonly IUnitOfWork _unitOfWorkRepository;
 
-    public RepositoryManager(RepositoryDbContext dbContext)
+    public RepositoryManager(RepositoryDbContext dbContext, IOptionsMonitor<PageSettings> pageSettings)
     {
-        _barberRepository = new BarberRepository(dbContext);
+        _barberRepository = new BarberRepository(dbContext, pageSettings);
         _customerRepository = new CustomerRepository(dbContext);
         _appointmentRepository = new AppointmentRepository(dbContext);
         _unitOfWorkRepository = new UnitOfWork(dbContext);

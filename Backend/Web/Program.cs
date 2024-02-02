@@ -1,6 +1,7 @@
 using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Persistence.Configurations;
 using Persistence.Repository;
 using Presentation;
 using Services;
@@ -28,6 +29,11 @@ builder.Services.AddDbContextPool<RepositoryDbContext>(builder =>
 // My Services
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 builder.Services.AddScoped<IServiceManager, ServiceManager>();
+
+// Configurations
+builder.Services.Configure<PageSettings>(
+    builder.Configuration.GetSection("PageSettings")
+);
 
 var app = builder.Build();
 
