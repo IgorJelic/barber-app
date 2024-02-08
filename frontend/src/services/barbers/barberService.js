@@ -5,7 +5,7 @@ const BARBERS_URL = '/barbers'
 export const barberService = {
     getAllBarbers: async (filter) => {
         try {
-            const response = await axios.get(BARBERS_URL,{params: {filterObject: filter}});
+            const response = await axios.get(BARBERS_URL,{params: filter});
             return response.data;
         } catch (error) {
             console.log(error);

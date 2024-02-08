@@ -1,4 +1,4 @@
-import barberService from '../../services/barbers/barberService.js';
+import { barberService } from '../../services/barbers/barberService';
 
 export default function BarberCard({barber}){
 

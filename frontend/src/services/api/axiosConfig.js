@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Base URL
-axios.defaults.baseURL = 'http://localhost:5031/api';
+axios.defaults.baseURL = 'https://localhost:7065/api';
 
 // Request interceptor
 axios.interceptors.request.use(
@@ -12,3 +12,5 @@ axios.interceptors.request.use(
     }, 
     error => Promise.reject(error)
 );
+
+export default axios;
