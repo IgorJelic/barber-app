@@ -7,7 +7,7 @@ using Shared.FilterObjects;
 namespace Presentation.Controllers;
 
 [ApiController]
-[Route("api/barber")]
+[Route("api/barbers")]
 public class BarberController : ControllerBase
 {
     private readonly int DEFAULT_PAGE_SIZE = 4;
