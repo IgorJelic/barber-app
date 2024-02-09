@@ -2,7 +2,7 @@ using Shared.Enums;
 
 namespace Shared.DataTransferObjects;
 
-public class BarberDto
+public class SingleBarberDto
 {
     public Guid Id { get; set; }
     public string Username { get; set; }
@@ -10,5 +10,5 @@ public class BarberDto
     public Gender Gender { get; set; }
     public double Rating { get; set; }
     public int AppointmentsCount { get; set; }
-    // public List<AppointmentDto> MyAppointments { get; set; }
+    public List<AppointmentDto> MyAppointments { get; set; }
 }

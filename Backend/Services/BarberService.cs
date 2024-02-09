@@ -22,11 +22,11 @@ public class BarberService : IBarberService
         return (barbersCount, barbers.Adapt<List<BarberDto>>());
     }
 
-    public BarberDto GetBarberById(Guid barberId)
+    public SingleBarberDto GetBarberById(Guid barberId)
     {
         var barber = _repositoryManager.BarberRepository.GetById(barberId);
 
-        return barber.Adapt<BarberDto>();
+        return barber.Adapt<SingleBarberDto>();
     }
 
 }

@@ -1,10 +1,10 @@
-import { useEffect } from "react"
+import { createContext, useEffect } from "react"
 import { barberService } from "../services/barbers/barberService"
 import { useState } from "react"
 import { BarberFilterObject } from "../utils/fetchingFilters/barbersFilter";
 import BarberList from "../components/home/BarbersList";
 import {Gender} from '../utils/fetchingFilters/genderEnum';
-
+import { PaginationContext } from "../contexts/PaginationContext";
 
 export default function HomePage(){
     const [data, setData] = useState({
@@ -12,14 +12,21 @@ export default function HomePage(){
         pageNumber: 1,
         pagesCount: 0
     });
-    let filter = new BarberFilterObject(
-        {
-            sortByPopularity: undefined,
-            sortByRating: undefined,
-            pageNumber:1,
-            pageSize:4,
-            gender: Gender.Male
-        });
+
+    const [filter, setFilter] = useState(new BarberFilterObject({
+        sortByPopularity: undefined,
+        sortByRating: undefined,
+        pageNumber:1,
+        pageSize:4,
+        gender: undefined
+    }))
+
+    const updatePageNumber = (newPageNumber) => {
+        setFilter(prevFilter => ({
+            ...prevFilter,
+            pageNumber: newPageNumber
+        }));
+    };
 
 
     useEffect(() => {
@@ -33,11 +40,13 @@ export default function HomePage(){
                     return { barbers: [], pageNumber: 1, pagesCount: 0 };
                 }
             )
-    }, [])
+    }, [filter])
 
     return (
         <>
-            <BarberList data={data}/>
+            <PaginationContext.Provider value={updatePageNumber}>
+                <BarberList data={data}/>
+            </PaginationContext.Provider>
         </>
     )
 }

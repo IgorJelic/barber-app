@@ -6,5 +6,5 @@ namespace Services.Abstractions;
 public interface IBarberService
 {
     (int barbersCount, List<BarberDto> barbers) GetAllBarbers(BarberFilterObject filterObject);
-    BarberDto GetBarberById(Guid barberId);
+    SingleBarberDto GetBarberById(Guid barberId);
 }

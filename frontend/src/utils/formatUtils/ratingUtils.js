@@ -1,0 +1,1 @@
+export const formatRating = (rating) => rating.toFixed(1);

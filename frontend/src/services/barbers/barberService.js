@@ -20,15 +20,4 @@ export const barberService = {
             console.log(error);
         }
     },
-
-    calculateRating: (appointments) => {
-        return 3.5;
-
-        let ratedAppointments = appointments.filter(a => a.rating !== null);
-
-        if (ratedAppointments.length === 0) return 0;
-
-        const totalRating = ratedAppointments.reduce((sum, appointment) => sum + appointment.rating, 0);
-        return totalRating / ratedAppointments.length;
-    }
 }

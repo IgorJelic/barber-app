@@ -19,7 +19,7 @@ public class BarberRepository : IBarberRepository
 
     public (int, List<Barber>) GetAll(BarberFilterObject? filterObject)
     {
-        IQueryable<Barber> barbers = _dbContext.Barbers.Include(b => b.MyAppointments);
+        IQueryable<Barber> barbers = _dbContext.Barbers.Include(b => b.MyAppointments).AsNoTracking();
 
         if (filterObject is null)
             return (barbers.Count(), barbers.ToList());
@@ -30,15 +30,15 @@ public class BarberRepository : IBarberRepository
         if (filterObject.SortByPopularity is not null)
         {
             barbers = filterObject.SortByPopularity.Value
-                ? barbers.OrderByDescending(barber => barber.MyAppointments.Count)
-                : barbers.OrderBy(barber => barber.MyAppointments.Count);
+                ? barbers.OrderByDescending(barber => barber.AppointmentsCount)
+                : barbers.OrderBy(barber => barber.AppointmentsCount);
         }
 
         if (filterObject.SortByRating is not null)
         {
             barbers = filterObject.SortByRating.Value
-                ? barbers.OrderByDescending(barber => barber.CalculateRating())
-                : barbers.OrderBy(barber => barber.CalculateRating());
+                ? barbers.OrderByDescending(barber => barber.Rating)
+                : barbers.OrderBy(barber => barber.Rating);
         }
 
         int barbersCount = barbers.Count();
@@ -60,6 +60,6 @@ public class BarberRepository : IBarberRepository
 
     public Barber GetById(Guid barberId)
     {
-        return _dbContext.Barbers.FirstOrDefault(x => x.Id == barberId)!;
+        return _dbContext.Barbers.AsNoTracking().FirstOrDefault(x => x.Id == barberId)!;
     }
 }

@@ -36,7 +36,7 @@ public class BarberController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public ActionResult<BarberDto> GetBarberById(Guid id)
+    public ActionResult<SingleBarberDto> GetBarberById(Guid id)
     {
         var barberDto = _serviceManager.BarberService.GetBarberById(id);
 

@@ -1,0 +1,86 @@
+/* Home.module.css */
+
+/* List Styles */
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: yellow;
+}
+
+.listTitle{
+    color: #111;
+    font-size: 44px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.listSubtitle{
+    color: #111;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    justify-content: center;
+
+    margin-bottom: 40px;
+}
+
+/* Card Styles */
+
+.title{
+    color: #222;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.info{
+    font-size: 16px;
+}
+
+.rating, .count{
+    font-weight: bold;
+    font-style: italic;
+    /* text-decoration: underline; */
+}
+
+.card{
+    border: #222 solid;
+    background-color: #888;
+    border-radius: 8px;
+
+    width: 340px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.line{
+    width: 70%;
+    margin: 10px 0;
+}
+
+.btn{
+    padding: 4px 12px;
+    background-color: #777;
+
+    border: #222 solid;
+    border-radius: 4px;
+}
+
+.btn:hover{
+    background-color: #888;
+    cursor: pointer;
+}
