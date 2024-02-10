@@ -18,21 +18,23 @@
 
     padding: 20px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: var(--background-color);
 
     font-weight: 500;
     border: solid #222;
+
+    color: #222;
 
     transition: 0.15s ease-out;
 }
 
 .paginationBtn:hover, .paginationBtn.active:hover{
-    background-color: #444;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
     cursor: pointer;
 }
 
 .paginationBtn.active{
-    background-color: #222;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
 }
