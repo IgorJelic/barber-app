@@ -4,7 +4,7 @@ import { useState } from "react"
 import { BarberFilterObject } from "../utils/fetchingFilters/barbersFilter";
 import BarberList from "../components/home/BarbersList";
 import {Gender} from '../utils/fetchingFilters/genderEnum';
-import { PaginationContext } from "../contexts/PaginationContext";
+import { FilterContext } from "../contexts/FilterContext";
 
 export default function HomePage(){
     const [data, setData] = useState({
@@ -18,19 +18,11 @@ export default function HomePage(){
         sortByPopularity: undefined,
         sortByRating: undefined,
         pageNumber:1,
-        pageSize:4,
+        pageSize: window.innerWidth < 1490 ? 4 : 6,
         gender: undefined
     }))
 
     // Check viewport width and put default pageSize to 6 or 4 accordingly
-
-    const updatePageNumber = (newPageNumber) => {
-        setFilter(prevFilter => ({
-            ...prevFilter,
-            pageNumber: newPageNumber
-        }));
-    };
-
 
     useEffect(() => {
         barberService.getAllBarbers(filter)
@@ -46,9 +38,11 @@ export default function HomePage(){
     }, [filter])
 
     return (
-        <PaginationContext.Provider value={updatePageNumber}>
+        <FilterContext.Provider value={setFilter}>
             <BarberList data={data}/>
-        </PaginationContext.Provider>
+        </FilterContext.Provider>
     )
+
+    
 }
 

@@ -1,17 +1,20 @@
 import { useContext } from 'react'
 import styles from './Common.module.css'
-import { PaginationContext } from '../../contexts/PaginationContext'
+import { FilterContext } from '../../contexts/FilterContext'
 
 export default function PaginationButton({
     pageNumber,
     activePage
 }){
-    const updatePageNumber = useContext(PaginationContext)
+    const updatePageNumber = useContext(FilterContext);
 
     return(
         <>
             <div 
-                onClick={() => updatePageNumber(pageNumber)} 
+                onClick={() => updatePageNumber(prevFilter => ({
+                    ...prevFilter,
+                    pageNumber: pageNumber
+                }))} 
                 className={`${styles.paginationBtn} ${pageNumber === activePage ? styles.active : ''}`}>
                 {pageNumber}
             </div>
