@@ -21,6 +21,8 @@ export default function HomePage(){
         gender: undefined
     }))
 
+    // Check viewport width and put default pageSize to 6 or 4 accordingly
+
     const updatePageNumber = (newPageNumber) => {
         setFilter(prevFilter => ({
             ...prevFilter,
@@ -43,11 +45,9 @@ export default function HomePage(){
     }, [filter])
 
     return (
-        <>
-            <PaginationContext.Provider value={updatePageNumber}>
-                <BarberList data={data}/>
-            </PaginationContext.Provider>
-        </>
+        <PaginationContext.Provider value={updatePageNumber}>
+            <BarberList data={data}/>
+        </PaginationContext.Provider>
     )
 }
 
