@@ -24,6 +24,9 @@ public class BarberRepository : IBarberRepository
         if (filterObject is null)
             return (barbers.Count(), barbers.ToList());
 
+        if (filterObject.Username is not null)
+            barbers = barbers.Where(b => b.Username.ToLower().Contains(filterObject.Username.ToLower()));
+
         if (filterObject.Gender is not null)
             barbers = barbers.Where(b => b.Gender == filterObject.Gender);
 

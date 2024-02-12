@@ -4,6 +4,7 @@ namespace Shared.FilterObjects;
 
 public class BarberFilterObject
 {
+    public string? Username { get; set; }
     // Count of total appointments by this barber
     public bool? SortByPopularity { get; set; }
     // Avg of barbers appointments ratings

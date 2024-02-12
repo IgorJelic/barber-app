@@ -14,6 +14,7 @@ export default function HomePage(){
     });
 
     const [filter, setFilter] = useState(new BarberFilterObject({
+        username: undefined,
         sortByPopularity: undefined,
         sortByRating: undefined,
         pageNumber:1,
