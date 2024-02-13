@@ -26,7 +26,6 @@
     justify-content: space-evenly;
     align-items: center;
     width: 80%;
-    /* background-color: green; */
 }
 
 .searchInput{
@@ -48,13 +47,32 @@
     font-weight: 600;
 }
 
-.genderBtn.active{
+.genderBtn:hover, .sortBtn:hover{
+    cursor:pointer
+}
+
+.sortBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 34px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sortBtn.desc{
+    background-color: var(--accent-color);
+}
+.sortBtn.asc{
+    background-color: var(--secondary-color);
+}
+
+.active{
     background-color: var(--accent-color);
 }
 
-.genderBtn:hover{
-    cursor:pointer
-}
 
 /* List Styles */
 .contentWrap{

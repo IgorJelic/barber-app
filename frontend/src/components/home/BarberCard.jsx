@@ -15,7 +15,7 @@ export default function BarberCard({barber}){
                 <h2 className={styles.title}>{barber.username}</h2>
                 <hr className={styles.line}/>
                 <div className={styles.info}>Gender: {gender}</div>
-                <div className={styles.info}>Rating: <span className={styles.rating}>{formatRating(barber.rating)}</span></div>
+                <div className={styles.info}>Rank: <span className={styles.rating}>{formatRating(barber.rating)}</span></div>
                 <div className={styles.info}>
                     Appointments so far: <span className={styles.count}>{barber.appointmentsCount}</span>
                 </div>

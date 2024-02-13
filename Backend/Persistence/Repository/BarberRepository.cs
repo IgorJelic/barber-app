@@ -3,6 +3,7 @@ using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Persistence.Configurations;
+using Shared.Enums;
 using Shared.FilterObjects;
 
 namespace Persistence.Repository;
@@ -32,16 +33,24 @@ public class BarberRepository : IBarberRepository
 
         if (filterObject.SortByPopularity is not null)
         {
-            barbers = filterObject.SortByPopularity.Value
-                ? barbers.OrderByDescending(barber => barber.AppointmentsCount)
-                : barbers.OrderBy(barber => barber.AppointmentsCount);
+            if (filterObject.SortByPopularity.Value != Sorting.None)
+            {
+                bool descending = filterObject.SortByPopularity.Value == Sorting.Descending;
+                barbers = descending
+                    ? barbers.OrderByDescending(barber => barber.AppointmentsCount)
+                    : barbers.OrderBy(barber => barber.AppointmentsCount);
+            }
         }
 
         if (filterObject.SortByRating is not null)
         {
-            barbers = filterObject.SortByRating.Value
-                ? barbers.OrderByDescending(barber => barber.Rating)
-                : barbers.OrderBy(barber => barber.Rating);
+            if (filterObject.SortByRating.Value != Sorting.None)
+            {
+                bool descending = filterObject.SortByRating.Value == Sorting.Descending;
+                barbers = descending
+                    ? barbers.OrderByDescending(barber => barber.Rating)
+                    : barbers.OrderBy(barber => barber.Rating);
+            }
         }
 
         int barbersCount = barbers.Count();

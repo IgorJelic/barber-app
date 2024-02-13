@@ -1,9 +1,8 @@
-import { createContext, useEffect } from "react"
+import { useEffect } from "react"
 import { barberService } from "../services/barbers/barberService"
 import { useState } from "react"
 import { BarberFilterObject } from "../utils/fetchingFilters/barbersFilter";
 import BarberList from "../components/home/BarbersList";
-import {Gender} from '../utils/fetchingFilters/genderEnum';
 import { FilterContext } from "../contexts/FilterContext";
 
 export default function HomePage(){
@@ -21,8 +20,6 @@ export default function HomePage(){
         pageSize: window.innerWidth < 1490 ? 4 : 6,
         gender: undefined
     }))
-
-    // Check viewport width and put default pageSize to 6 or 4 accordingly
 
     useEffect(() => {
         barberService.getAllBarbers(filter)
