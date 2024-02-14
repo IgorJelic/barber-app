@@ -38,3 +38,41 @@
     background-color: var(--secondary-color);
     color: var(--background-color);
 }
+
+/* Modal Styles */
+.modalOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 50;
+}
+
+.modal{
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    max-width: 80%; /* Adjust the maximum width as needed */
+    max-height: 80%; /* Adjust the maximum height as needed */
+    overflow-y: auto; /* Enable scrolling if content exceeds max-height */
+
+    z-index: 51;
+}
+
+.modalCloseBtn{
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    color: var(--highlight-color);
+}

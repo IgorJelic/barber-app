@@ -14,7 +14,7 @@ export const barberService = {
 
     getBarberById: async (barberId) => {
         try {
-            const response = await axios.get(BARBERS_URL,{params: {id: barberId}});
+            const response = await axios.get(`${BARBERS_URL}/${barberId}`);
             return response.data;
         } catch (error) {
             console.log(error);

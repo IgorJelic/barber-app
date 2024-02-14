@@ -192,3 +192,48 @@
     color: var(--secondary-color);
     cursor: pointer;
 }
+
+/* AppointmentForm Styles */
+.appForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    margin: 40px 60px;
+}
+
+.availableAppointments{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-height: 160px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    border-radius: 8px;
+}
+
+.availableHeader{
+    margin-top: 30px;
+    margin-bottom: 6px;
+}
+
+.date{
+    background-color: gray;
+    height: 38px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.date:nth-child(even){
+    background-color: yellow;
+}
+
+.date:hover{
+    cursor: pointer;
+    background-color: blue;
+}
