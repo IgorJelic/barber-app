@@ -200,7 +200,12 @@
     align-items: center;
     justify-content: space-evenly;
 
-    margin: 40px 60px;
+    margin: 26px 60px;
+}
+
+.appForm span{
+    font-size: 18px;
+    color: var(--neutral-color-2);
 }
 
 .availableAppointments{
@@ -212,15 +217,18 @@
     scroll-behavior: smooth;
 
     border-radius: 8px;
+    border: 1px solid var(--primary-color);
 }
 
 .availableHeader{
-    margin-top: 30px;
+    color: var(--neutral-color) !important;
+    font-size: 22px !important;
     margin-bottom: 6px;
 }
 
 .date{
-    background-color: gray;
+    background-color: var(--primary-color-2);
+    color: var(--neutral-color);
     height: 38px;
     width: 100%;
 
@@ -230,10 +238,10 @@
 }
 
 .date:nth-child(even){
-    background-color: yellow;
+    background-color: var(--primary-color);
 }
 
 .date:hover{
     cursor: pointer;
-    background-color: blue;
+    background-color: var(--highlight-color);
 }
