@@ -220,6 +220,12 @@
     border: 1px solid var(--primary-color);
 }
 
+.appointmentTitle{
+    color: var(--neutral-color) !important;
+    font-size: 40px;
+    font-weight: bold;
+}
+
 .availableHeader{
     color: var(--neutral-color) !important;
     font-size: 22px !important;

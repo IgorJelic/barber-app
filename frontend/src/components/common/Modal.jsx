@@ -7,15 +7,11 @@ export default function Modal({
     children
 }){
     if (!isModalOpen) return null;
-
-    const handleModalHover = (event) => {
-        event.stopPropagation();
-    };
     
     return (
         <>
             <div onClick={onClose} className={styles.modalOverlay}>
-                <div onMouseOver={handleModalHover} className={styles.modal}>
+                <div onClick={(e) => e.stopPropagation()} className={styles.modal}>
                     {children}
                 </div>
             </div>

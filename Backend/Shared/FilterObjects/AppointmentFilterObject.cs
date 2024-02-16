@@ -2,6 +2,7 @@ namespace Shared.FilterObjects;
 
 public class AppointmentFilterObject
 {
-    public short? PageNumber { get; set; }
-    public short? PageSize { get; set; }
+    public DateTime Day { get; set; } = DateTime.Today;
+    public short PageNumber { get; set; } = 1;
+    public short PageSize { get; set; } = 8;
 }

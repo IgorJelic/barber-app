@@ -29,7 +29,7 @@ export default function AppointmentForm({
     return(
         <>
             <div className={styles.appForm}>
-                <h2>{barber.username}</h2>
+                <h2 className={styles.appointmentTitle}>{barber.username}</h2>
                 <span><StarRating rating={barber.rating}/></span>
                 <span>Experience: {barber.appointmentsCount}
                                   {barber.appointmentsCount !== 1 ? ' clients' : ' client'}.</span>

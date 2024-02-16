@@ -13,7 +13,7 @@ public class AppointmentRepository : IAppointmentRepository
         _dbContext = dbContext;
     }
 
-    public List<Appointment> GetAll(AppointmentFilterObject? filterObject, Guid? customerId, Guid? barberId)
+    public (int, List<Appointment>) GetAll(AppointmentFilterObject filterObject, Guid? customerId, Guid? barberId)
     {
         IQueryable<Appointment> appointments = _dbContext.Appointments
                                                 .Include(a => a.Barber)
@@ -27,15 +27,17 @@ public class AppointmentRepository : IAppointmentRepository
             ? appointments.Where(a => a.Barber.Id == barberId)
             : appointments;
 
-        if (filterObject is null) return appointments.ToList();
+        appointments = appointments.Where(a => a.AppointmentTime.Day == filterObject.Day.Day);
 
-        appointments = (filterObject.PageSize is not null) && (filterObject.PageNumber is not null)
-            ? appointments
-                .Skip(((short)filterObject.PageNumber - 1) * (short)filterObject.PageSize)
-                .Take((short)filterObject.PageSize)
-            : appointments;
+        if (filterObject is null) return (appointments.Count(), appointments.ToList());
 
-        return appointments.ToList();
+        var appointmentsCount = appointments.Count();
+
+        appointments = appointments
+                .Skip((filterObject.PageNumber - 1) * filterObject.PageSize)
+                .Take(filterObject.PageSize);
+
+        return (appointmentsCount, appointments.ToList());
     }
 
 
@@ -47,7 +49,7 @@ public class AppointmentRepository : IAppointmentRepository
             .FirstOrDefault(x => x.Id == appointmentId)!;
     }
 
-    public void Insert(Appointment appointment)
+    public Appointment Insert(Appointment appointment)
     {
         var exists = _dbContext.Appointments.Any(
             (x =>
@@ -55,6 +57,10 @@ public class AppointmentRepository : IAppointmentRepository
             x.Barber.Id == appointment.Barber.Id));
 
         if (!exists) _dbContext.Appointments.Add(appointment);
+
+        // Throw exception when appointment exists
+
+        return appointment;
     }
 
 }

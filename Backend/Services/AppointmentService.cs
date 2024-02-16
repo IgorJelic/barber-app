@@ -2,6 +2,8 @@ using Domain.Repository;
 using Services.Abstractions;
 using Shared.DataTransferObjects;
 using Shared.FilterObjects;
+using Mapster;
+using Domain.Entities;
 
 namespace Services;
 
@@ -12,24 +14,49 @@ public class AppointmentService : IAppointmentService
     {
         _repositoryManager = repositoryManager;
     }
-    public List<AppointmentDto> GetAllAppointments(AppointmentFilterObject? filterObject)
+
+
+
+    public (int, List<AppointmentDto>) GetAllAppointments(AppointmentFilterObject filterObject)
     {
-        throw new NotImplementedException();
+        var (appointmentsCount, appointments) =
+            _repositoryManager.AppointmentRepository.GetAll(filterObject: filterObject, null, null);
+
+        return (appointmentsCount, appointments.Adapt<List<AppointmentDto>>());
     }
 
     public AppointmentDto GetAppointmentById(Guid appointmentId)
     {
-        throw new NotImplementedException();
+        var appointment = _repositoryManager.AppointmentRepository.GetById(appointmentId);
+
+        return appointment.Adapt<AppointmentDto>();
     }
 
-    public List<AppointmentDto> GetBarbersAppointments(Guid barberId, AppointmentFilterObject? filterObject)
+    public (int appointmentsCount, List<AppointmentDto> appointments) GetBarbersAppointments(Guid barberId, AppointmentFilterObject filterObject)
     {
-        throw new NotImplementedException();
+        var (appointmentsCount, appointments) =
+            _repositoryManager.AppointmentRepository
+                .GetAll(filterObject: filterObject, customerId: null, barberId: barberId);
+        return (appointmentsCount, appointments.Adapt<List<AppointmentDto>>());
     }
 
-    public List<AppointmentDto> GetCustomersAppointments(Guid customerId, AppointmentFilterObject? filterObject)
+    public (int appointmentsCount, List<AppointmentDto> appointments) GetCustomersAppointments(Guid customerId, AppointmentFilterObject filterObject)
     {
-        throw new NotImplementedException();
+        var (appointmentsCount, appointments) =
+            _repositoryManager.AppointmentRepository
+                .GetAll(filterObject: filterObject, customerId: customerId, barberId: null);
+        return (appointmentsCount, appointments.Adapt<List<AppointmentDto>>());
     }
 
+    public AppointmentDto CreateAppointment(AppointmentCreateDto appointment, Guid customerId, Guid barberId)
+    {
+        var newAppointment = appointment.Adapt<Appointment>();
+        newAppointment.Barber = _repositoryManager.BarberRepository.GetById(barberId);
+        newAppointment.Customer = _repositoryManager.CustomerRepository.GetById(customerId);
+
+        newAppointment = _repositoryManager.AppointmentRepository.Insert(newAppointment);
+        _repositoryManager.UnitOfWork.SaveChanges();
+
+        return newAppointment.Adapt<AppointmentDto>();
+    }
 }

@@ -21,7 +21,7 @@ public class BarberController : ControllerBase
     [HttpGet]
     public ActionResult<List<BarberDto>> GetBarbers([FromQuery] BarberFilterObject? filterObject)
     {
-        var (barbersCount, barbers) = _serviceManager.BarberService.GetAllBarbers(filterObject);
+        var (barbersCount, barbers) = _serviceManager.BarberService.GetAllBarbers(filterObject!);
 
         int pageSize = filterObject?.PageSize ?? DEFAULT_PAGE_SIZE;
         int pageCount = (int)Math.Ceiling(barbersCount / (double)pageSize);

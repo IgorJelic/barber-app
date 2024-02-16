@@ -5,8 +5,9 @@ namespace Services.Abstractions;
 
 public interface IAppointmentService
 {
-    List<AppointmentDto> GetAllAppointments(AppointmentFilterObject? filterObject);
-    List<AppointmentDto> GetCustomersAppointments(Guid customerId, AppointmentFilterObject? filterObject);
-    List<AppointmentDto> GetBarbersAppointments(Guid barberId, AppointmentFilterObject? filterObject);
+    (int appointmentsCount, List<AppointmentDto> appointments) GetAllAppointments(AppointmentFilterObject filterObject);
+    (int appointmentsCount, List<AppointmentDto> appointments) GetCustomersAppointments(Guid customerId, AppointmentFilterObject filterObject);
+    (int appointmentsCount, List<AppointmentDto> appointments) GetBarbersAppointments(Guid barberId, AppointmentFilterObject filterObject);
     AppointmentDto GetAppointmentById(Guid appointmentId);
+    AppointmentDto CreateAppointment(AppointmentCreateDto appointment, Guid customerId, Guid barberId);
 }
