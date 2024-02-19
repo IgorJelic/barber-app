@@ -12,17 +12,19 @@ export default function BarberCard({barber}){
 
     const openModal = () => {
         setIsModalOpen(true);
+        document.body.classList.add('no-scroll');
     }
     
     const closeModal = () => {
         setIsModalOpen(false);
+        document.body.classList.remove('no-scroll');
     }
 
-    let gender = barber.gender == 0 ? 'Male' : 'Female';
+    let gender = barber.gender === 0 ? 'Male' : 'Female';
     
     useEffect(() => {
         setBarberId(barber.id);
-    },[]);
+    },[barber.id]);
 
     return(
         <>

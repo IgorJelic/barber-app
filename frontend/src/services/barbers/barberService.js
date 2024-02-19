@@ -1,6 +1,6 @@
 import axios from '../api/axiosConfig.js';
 
-const BARBERS_URL = '/barbers'
+const BARBERS_URL = process.env.REACT_APP_BARBERS_URL
 
 export const barberService = {
     getAllBarbers: async (filter) => {

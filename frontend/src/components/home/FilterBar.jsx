@@ -4,7 +4,7 @@ import styles from './Home.module.css'
 import { Gender } from '../../utils/fetchingFilters/genderEnum';
 import { Sorting } from '../../utils/fetchingFilters/sortingEnum';
 
-export default function FilterBar({}){
+export default function FilterBar(){
     const [maleBtnActive, setMaleBtnActive] = useState(false);
     const [femaleBtnActive, setFemaleBtnActive] = useState(false);
     const [popSorting, setPopSorting] = useState(Sorting.None);

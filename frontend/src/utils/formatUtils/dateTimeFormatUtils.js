@@ -6,5 +6,5 @@ export const formatDate = (date) => {
         hour: 'numeric',
         minute: '2-digit' 
     };
-    return new Date(date).toLocaleDateString(undefined, options);
+    return new Date(date).toLocaleString(undefined, options);
 };

@@ -196,11 +196,77 @@
 /* AppointmentForm Styles */
 .appForm{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    min-width: 600px;
+    max-width: 700px;
+
+    margin: 26px 40px;
+
+    position: relative;
+}
+
+.verticalLine{
+    position: absolute;
+    height: 94%;
+    width: 1px;
+
+    border: 1px solid #888;
+
+    left: 55%;
+    top: 50%;
+
+    transform: translateY(-50%)
+}
+
+.leftForm{
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+}
 
-    margin: 26px 60px;
+.rightForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    width: 240px;
+    height: 240px;
+    background-color: var(--neutral-color);
+
+    border-radius: 4px;
+
+    padding: 0px 20px;
+}
+
+.selectedTime{
+    height: 36px;
+    font-size: 28px !important;
+    color: var(--primary-color-2) !important;
+}
+
+.rightForm input{
+    padding: 4px 8px;
+    color: var(--primary-color-2) !important;
+}
+
+.rightForm button{
+    width: 70%;
+    margin: 0 auto;
+    padding: 4px 8px;
+    background-color: var(--primary-color-2);
+    color: var(--neutral-color) !important;
+    border: 1px solid var(--primary-color);
+}
+
+.rightForm button:hover{
+    cursor: pointer;
+    background-color: var(--primary-color-hover);
+    background-color: var(--highlight-color);
+    color: var(--white) !important;
 }
 
 .appForm span{

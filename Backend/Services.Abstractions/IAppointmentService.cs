@@ -9,5 +9,5 @@ public interface IAppointmentService
     (int appointmentsCount, List<AppointmentDto> appointments) GetCustomersAppointments(Guid customerId, AppointmentFilterObject filterObject);
     (int appointmentsCount, List<AppointmentDto> appointments) GetBarbersAppointments(Guid barberId, AppointmentFilterObject filterObject);
     AppointmentDto GetAppointmentById(Guid appointmentId);
-    AppointmentDto CreateAppointment(AppointmentCreateDto appointment, Guid customerId, Guid barberId);
+    AppointmentDto CreateAppointment(AppointmentCreateDto appointment);
 }

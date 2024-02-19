@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './Common.module.css'
 
 export default function Modal({

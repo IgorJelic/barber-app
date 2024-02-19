@@ -48,11 +48,11 @@ public class AppointmentService : IAppointmentService
         return (appointmentsCount, appointments.Adapt<List<AppointmentDto>>());
     }
 
-    public AppointmentDto CreateAppointment(AppointmentCreateDto appointment, Guid customerId, Guid barberId)
+    public AppointmentDto CreateAppointment(AppointmentCreateDto appointment)
     {
         var newAppointment = appointment.Adapt<Appointment>();
-        newAppointment.Barber = _repositoryManager.BarberRepository.GetById(barberId);
-        newAppointment.Customer = _repositoryManager.CustomerRepository.GetById(customerId);
+        newAppointment.Barber = _repositoryManager.BarberRepository.GetById(appointment.BarberId);
+        newAppointment.Customer = _repositoryManager.CustomerRepository.GetById(appointment.CustomerId);
 
         newAppointment = _repositoryManager.AppointmentRepository.Insert(newAppointment);
         _repositoryManager.UnitOfWork.SaveChanges();
