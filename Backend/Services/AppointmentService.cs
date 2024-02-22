@@ -20,7 +20,7 @@ public class AppointmentService : IAppointmentService
     public (int, List<AppointmentDto>) GetAllAppointments(AppointmentFilterObject filterObject)
     {
         var (appointmentsCount, appointments) =
-            _repositoryManager.AppointmentRepository.GetAll(filterObject: filterObject, null, null);
+            _repositoryManager.AppointmentRepository.GetAll(filterObject: filterObject, null);
 
         return (appointmentsCount, appointments.Adapt<List<AppointmentDto>>());
     }
@@ -36,23 +36,22 @@ public class AppointmentService : IAppointmentService
     {
         var (appointmentsCount, appointments) =
             _repositoryManager.AppointmentRepository
-                .GetAll(filterObject: filterObject, customerId: null, barberId: barberId);
+                .GetAll(filterObject: filterObject, barberId: barberId);
         return (appointmentsCount, appointments.Adapt<List<AppointmentDto>>());
     }
 
-    public (int appointmentsCount, List<AppointmentDto> appointments) GetCustomersAppointments(Guid customerId, AppointmentFilterObject filterObject)
-    {
-        var (appointmentsCount, appointments) =
-            _repositoryManager.AppointmentRepository
-                .GetAll(filterObject: filterObject, customerId: customerId, barberId: null);
-        return (appointmentsCount, appointments.Adapt<List<AppointmentDto>>());
-    }
 
     public AppointmentDto CreateAppointment(AppointmentCreateDto appointment)
     {
+        var barber = _repositoryManager.BarberRepository.GetById(appointment.BarberId) ?? throw new Exception();
         var newAppointment = appointment.Adapt<Appointment>();
-        newAppointment.Barber = _repositoryManager.BarberRepository.GetById(appointment.BarberId);
-        newAppointment.Customer = _repositoryManager.CustomerRepository.GetById(appointment.CustomerId);
+
+        bool exists = barber.MyAppointments
+            .Any(a => a.AppointmentTime == newAppointment.AppointmentTime);
+
+        if (exists) throw new Exception();
+
+        newAppointment.Barber = barber;
 
         newAppointment = _repositoryManager.AppointmentRepository.Insert(newAppointment);
         _repositoryManager.UnitOfWork.SaveChanges();

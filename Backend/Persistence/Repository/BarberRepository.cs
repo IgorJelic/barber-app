@@ -37,8 +37,8 @@ public class BarberRepository : IBarberRepository
             {
                 bool descending = filterObject.SortByPopularity.Value == Sorting.Descending;
                 barbers = descending
-                    ? barbers.OrderByDescending(barber => barber.AppointmentsCount)
-                    : barbers.OrderBy(barber => barber.AppointmentsCount);
+                    ? barbers.OrderByDescending(barber => barber.MyAppointments.Count)
+                    : barbers.OrderBy(barber => barber.MyAppointments.Count);
             }
         }
 
@@ -72,6 +72,6 @@ public class BarberRepository : IBarberRepository
 
     public Barber GetById(Guid barberId)
     {
-        return _dbContext.Barbers.AsNoTracking().FirstOrDefault(x => x.Id == barberId)!;
+        return _dbContext.Barbers.Include(b => b.MyAppointments).FirstOrDefault(x => x.Id == barberId)!;
     }
 }

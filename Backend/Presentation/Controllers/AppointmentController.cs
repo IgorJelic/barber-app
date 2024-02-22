@@ -43,4 +43,13 @@ public class AppointmentController : ControllerBase
         return Ok(appointmentDto);
     }
 
+    [HttpPost]
+    public ActionResult<AppointmentDto> MakeAppointment([FromBody] AppointmentCreateDto appointment)
+    {
+        var newAppointment = _serviceManager.AppointmentService.CreateAppointment(appointment);
+
+        return Ok(newAppointment);
+        return CreatedAtAction(nameof(GetAppointmentById), new { appointmentId = newAppointment.Id }, newAppointment);
+    }
+
 }

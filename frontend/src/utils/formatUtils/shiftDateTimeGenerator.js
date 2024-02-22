@@ -9,10 +9,10 @@ export const generateShiftDateTimeArray = (takenAppointments) => {
     let currentTime = new Date(startTime);
 
     while (currentTime <= endTime) {
-        // if(!takenAppointments.some(app => app.appointmentTime.getTime() === currentTime.getTime())){
-        //     dateTimeArray.push(new Date(currentTime));
-        // }
-        dateTimeArray.push(new Date(currentTime));
+        if(!takenAppointments.some(app => new Date(app.appointmentTime).getTime() === currentTime.getTime())){
+            dateTimeArray.push(new Date(currentTime));
+        }
+        // dateTimeArray.push(new Date(currentTime));
         currentTime.setMinutes(currentTime.getMinutes() + 30); // Increment by 30 minutes
     }
 

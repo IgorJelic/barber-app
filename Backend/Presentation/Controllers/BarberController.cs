@@ -19,7 +19,7 @@ public class BarberController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<List<BarberDto>> GetBarbers([FromQuery] BarberFilterObject? filterObject)
+    public ActionResult GetBarbers([FromQuery] BarberFilterObject? filterObject)
     {
         var (barbersCount, barbers) = _serviceManager.BarberService.GetAllBarbers(filterObject!);
 

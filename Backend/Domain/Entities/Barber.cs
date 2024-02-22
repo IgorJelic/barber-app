@@ -10,7 +10,7 @@ public class Barber
     public string Password { get; set; }
     public Gender Gender { get; set; }
     public double Rating { get; set; } = 0.0;
-    public int AppointmentsCount { get; set; } = 0;
+    // public int AppointmentsCount { get; set; } = 0;
     public List<Appointment> MyAppointments { get; set; } = new List<Appointment>();
     public bool IsDeleted { get; set; } = false;
 }

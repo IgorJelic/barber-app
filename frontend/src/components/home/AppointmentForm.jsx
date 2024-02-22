@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './Home.module.css'
 import {barberService} from '../../services/barbers/barberService';
+import {appointmentService} from '../../services/appointments/appointmentService';
 import { generateShiftDateTimeArray } from '../../utils/formatUtils/shiftDateTimeGenerator';
 import { formatDate } from '../../utils/formatUtils/dateTimeFormatUtils';
 import StarRating from '../common/StarRating';
@@ -21,9 +22,10 @@ export default function AppointmentForm({
             .then(b => {
                 setBarber(b);
                 setTakenAppointments(b.myAppointments);
+                return b;
             })
-            .then(() => {
-                setAvailableAppointments(generateShiftDateTimeArray(takenAppointments));
+            .then((b) => {
+                setAvailableAppointments(generateShiftDateTimeArray(b.myAppointments));
             }, []);
     }, [])
 
@@ -39,12 +41,16 @@ export default function AppointmentForm({
 
         const appointment = {
             barberId: barberId,
-            email: email.current.value,
-            phone: phone.current.value,
-            appointmentTime: appTime
+            appointmentTime: appTime.toISOString(),
+            customerEmail: email.current.value,
+            customerPhone: phone.current.value,
         }
 
         console.log(appointment);
+
+        appointmentService.makeAppointment(appointment)
+            .then(data => console.log(data))
+            .catch(error => console.error(error));
     }
 
     const table = 

@@ -1,12 +1,12 @@
 import axios from '../api/axiosConfig.js';
 
-const CUSTOMERS_URL = process.env.REACT_APP_CUSTOMERS_URL
+const APPOINTMENTS_URL = process.env.REACT_APP_APPOINTMENTS_URL
 
-export const customerService = {
+export const appointmentService = {
 
     makeAppointment: async(appointment) => {
         try {
-            const response = await axios.post(`${CUSTOMERS_URL}/appointment`, {appointment: appointment});
+            const response = await axios.post(APPOINTMENTS_URL, appointment);
             return response.data;
         }
         catch (error) {

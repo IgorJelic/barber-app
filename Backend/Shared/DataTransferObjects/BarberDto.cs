@@ -10,5 +10,5 @@ public class BarberDto
     public Gender Gender { get; set; }
     public double Rating { get; set; }
     public int AppointmentsCount { get; set; }
-    // public List<AppointmentDto> MyAppointments { get; set; }
+    public List<AppointmentDto> MyAppointments { get; set; }
 }

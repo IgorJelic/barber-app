@@ -13,15 +13,10 @@ public class AppointmentRepository : IAppointmentRepository
         _dbContext = dbContext;
     }
 
-    public (int, List<Appointment>) GetAll(AppointmentFilterObject filterObject, Guid? customerId, Guid? barberId)
+    public (int, List<Appointment>) GetAll(AppointmentFilterObject filterObject, Guid? barberId)
     {
         IQueryable<Appointment> appointments = _dbContext.Appointments
-                                                .Include(a => a.Barber)
-                                                .Include(a => a.Customer);
-
-        appointments = customerId.HasValue
-            ? appointments.Where(a => a.Customer.Id == customerId)
-            : appointments;
+                                                .Include(a => a.Barber);
 
         appointments = barberId.HasValue
             ? appointments.Where(a => a.Barber.Id == barberId)
@@ -44,21 +39,13 @@ public class AppointmentRepository : IAppointmentRepository
     public Appointment GetById(Guid appointmentId)
     {
         return _dbContext.Appointments
-            .Include(a => a.Customer)
             .Include(a => a.Barber)
             .FirstOrDefault(x => x.Id == appointmentId)!;
     }
 
     public Appointment Insert(Appointment appointment)
     {
-        var exists = _dbContext.Appointments.Any(
-            (x =>
-            x.AppointmentTime == appointment.AppointmentTime &&
-            x.Barber.Id == appointment.Barber.Id));
-
-        if (!exists) _dbContext.Appointments.Add(appointment);
-
-        // Throw exception when appointment exists
+        _dbContext.Appointments.Add(appointment);
 
         return appointment;
     }

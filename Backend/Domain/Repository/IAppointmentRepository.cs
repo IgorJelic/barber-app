@@ -5,7 +5,7 @@ namespace Domain.Repository;
 
 public interface IAppointmentRepository
 {
-    (int appointmentsCount, List<Appointment> appointments) GetAll(AppointmentFilterObject filterObject, Guid? customerId, Guid? barberId);
+    (int appointmentsCount, List<Appointment> appointments) GetAll(AppointmentFilterObject filterObject, Guid? barberId);
     Appointment GetById(Guid appointmentId);
     Appointment Insert(Appointment appointment);
 }
