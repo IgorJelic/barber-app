@@ -105,3 +105,4 @@ D:\Igor\Faks\Projekti\barber-app\Backend\Web\bin\Debug\net7.0\App.Metrics.Format
 D:\Igor\Faks\Projekti\barber-app\Backend\Web\bin\Debug\net7.0\App.Metrics.Formatters.Json.dll
 D:\Igor\Faks\Projekti\barber-app\Backend\Web\bin\Debug\net7.0\Presentation.dll
 D:\Igor\Faks\Projekti\barber-app\Backend\Web\bin\Debug\net7.0\Presentation.pdb
+D:\Igor\Faks\Projekti\barber-app\Backend\Web\bin\Debug\net7.0\BCrypt.Net-Next.dll

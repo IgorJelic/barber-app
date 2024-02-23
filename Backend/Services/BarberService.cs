@@ -1,3 +1,4 @@
+using BCrypt.Net;
 using Domain.Entities;
 using Domain.Repository;
 using Mapster;
@@ -22,11 +23,25 @@ public class BarberService : IBarberService
         return (barbersCount, barbers.Adapt<List<BarberDto>>());
     }
 
-    public SingleBarberDto GetBarberById(Guid barberId)
+    public BarberDto GetBarberById(Guid barberId)
     {
         var barber = _repositoryManager.BarberRepository.GetById(barberId);
 
-        return barber.Adapt<SingleBarberDto>();
+        return barber.Adapt<BarberDto>();
     }
 
+    public BarberDto RegisterNewBarber(BarberRegisterDto barber)
+    {
+        var newBarber = barber.Adapt<Barber>();
+        var allBarbers = _repositoryManager.BarberRepository.GetAll().barbers;
+
+        bool exists = allBarbers.Any(b => b.Username == barber.Username);
+        if (exists) throw new Exception();
+
+        newBarber.Password = BCrypt.Net.BCrypt.HashPassword(barber.Password);
+
+        _repositoryManager.BarberRepository.Insert(newBarber);
+
+        return newBarber.Adapt<BarberDto>();
+    }
 }

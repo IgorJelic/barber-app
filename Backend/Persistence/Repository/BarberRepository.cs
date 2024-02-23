@@ -2,9 +2,9 @@ using Domain.Entities;
 using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Persistence.Configurations;
 using Shared.Enums;
 using Shared.FilterObjects;
+using Shared.SettingsObjects;
 
 namespace Persistence.Repository;
 
@@ -18,7 +18,7 @@ public class BarberRepository : IBarberRepository
         _dbContext = dbContext;
     }
 
-    public (int, List<Barber>) GetAll(BarberFilterObject? filterObject)
+    public (int, List<Barber>) GetAll(BarberFilterObject? filterObject = null)
     {
         IQueryable<Barber> barbers = _dbContext.Barbers.Include(b => b.MyAppointments).AsNoTracking();
 
@@ -74,4 +74,16 @@ public class BarberRepository : IBarberRepository
     {
         return _dbContext.Barbers.Include(b => b.MyAppointments).FirstOrDefault(x => x.Id == barberId)!;
     }
+
+    public Barber GetByUsername(string username)
+    {
+        return _dbContext.Barbers.FirstOrDefault(b => b.Username.Equals(username));
+    }
+
+
+    public void Insert(Barber barber)
+    {
+        _dbContext.Barbers.Add(barber);
+    }
+
 }

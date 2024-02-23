@@ -6,6 +6,7 @@ using Persistence.Repository;
 using Presentation;
 using Services;
 using Services.Abstractions;
+using Shared.SettingsObjects;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -35,6 +36,10 @@ builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.Configure<PageSettings>(
     builder.Configuration.GetSection("PageSettings")
 );
+builder.Services.Configure<AdminLoginSettings>(
+    builder.Configuration.GetSection("Admin")
+);
+
 
 // CORS
 builder.Services.AddCors(options =>

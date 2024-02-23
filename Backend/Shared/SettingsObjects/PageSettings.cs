@@ -1,4 +1,4 @@
-namespace Persistence.Configurations;
+namespace Shared.SettingsObjects;
 
 public class PageSettings
 {

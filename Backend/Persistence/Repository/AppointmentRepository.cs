@@ -43,11 +43,9 @@ public class AppointmentRepository : IAppointmentRepository
             .FirstOrDefault(x => x.Id == appointmentId)!;
     }
 
-    public Appointment Insert(Appointment appointment)
+    public void Insert(Appointment appointment)
     {
         _dbContext.Appointments.Add(appointment);
-
-        return appointment;
     }
 
 }

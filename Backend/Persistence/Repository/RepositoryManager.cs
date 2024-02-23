@@ -1,6 +1,6 @@
 using Domain.Repository;
 using Microsoft.Extensions.Options;
-using Persistence.Configurations;
+using Shared.SettingsObjects;
 
 namespace Persistence.Repository;
 

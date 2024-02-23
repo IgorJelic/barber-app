@@ -33,9 +33,9 @@ public class AppointmentController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public ActionResult<AppointmentDto> GetAppointmentById(Guid appointmentId)
+    public ActionResult<AppointmentDto> GetAppointmentById(Guid id)
     {
-        var appointmentDto = _serviceManager.AppointmentService.GetAppointmentById(appointmentId);
+        var appointmentDto = _serviceManager.AppointmentService.GetAppointmentById(id);
 
         if (appointmentDto is null)
             return NotFound(string.Format("Appointment with id '{0}' does not exist.", appointmentDto));
@@ -48,8 +48,7 @@ public class AppointmentController : ControllerBase
     {
         var newAppointment = _serviceManager.AppointmentService.CreateAppointment(appointment);
 
-        return Ok(newAppointment);
-        return CreatedAtAction(nameof(GetAppointmentById), new { appointmentId = newAppointment.Id }, newAppointment);
+        return CreatedAtAction(nameof(GetAppointmentById), new { id = newAppointment.Id }, newAppointment);
     }
 
 }

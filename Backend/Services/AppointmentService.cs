@@ -51,9 +51,11 @@ public class AppointmentService : IAppointmentService
 
         if (exists) throw new Exception();
 
+        var securePassword = 
+
         newAppointment.Barber = barber;
 
-        newAppointment = _repositoryManager.AppointmentRepository.Insert(newAppointment);
+        _repositoryManager.AppointmentRepository.Insert(newAppointment);
         _repositoryManager.UnitOfWork.SaveChanges();
 
         return newAppointment.Adapt<AppointmentDto>();
