@@ -42,7 +42,28 @@ public class UserService : IUserService
         return true;
     }
 
+    private static string CreateAdminToken()
+    {
+        List<Claim> claims = new()
+        {
+            new("id", String.Empty),
+            new("username", "Administrator"),
+            new("role", "admin")
+        };
 
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("s3cret_k3y"));
+        var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+        var tokenOptions = new JwtSecurityToken(
+            issuer: "https://localhost:5001",
+            claims: claims,
+            expires: DateTime.Now.AddMinutes(10),
+            signingCredentials: signingCredentials
+        );
+
+        string tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+        return tokenString;
+    }
 
     private static string CreateToken(Barber barber)
     {
@@ -63,7 +84,8 @@ public class UserService : IUserService
             signingCredentials: signingCredentials
         );
 
-        return "";
+        string tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+        return tokenString;
     }
 
 }
