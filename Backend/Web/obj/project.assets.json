@@ -1686,7 +1686,6 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
-          "Domain": "1.0.0",
           "Mapster": "7.4.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.16",
           "Microsoft.Extensions.Options": "7.0.1",
@@ -1703,6 +1702,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "Domain": "1.0.0",
           "Shared": "1.0.0"
         },
         "compile": {

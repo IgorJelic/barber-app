@@ -3,11 +3,8 @@ using Shared.Enums;
 
 namespace Domain.Entities;
 
-public class Barber
+public class Barber : User
 {
-    public Guid Id { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
     public Gender Gender { get; set; }
     public double Rating { get; set; } = 0;
     public List<Appointment> MyAppointments { get; set; } = new List<Appointment>();

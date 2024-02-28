@@ -15,3 +15,5 @@ D:\Igor\Faks\Projekti\barber-app\Backend\Presentation\bin\Debug\net7.0\Shared.dl
 D:\Igor\Faks\Projekti\barber-app\Backend\Presentation\bin\Debug\net7.0\Services.Abstractions.pdb
 D:\Igor\Faks\Projekti\barber-app\Backend\Presentation\bin\Debug\net7.0\Shared.pdb
 D:\Igor\Faks\Projekti\barber-app\Backend\Presentation\obj\Debug\net7.0\Presentation.csproj.CopyComplete
+D:\Igor\Faks\Projekti\barber-app\Backend\Presentation\bin\Debug\net7.0\Domain.dll
+D:\Igor\Faks\Projekti\barber-app\Backend\Presentation\bin\Debug\net7.0\Domain.pdb

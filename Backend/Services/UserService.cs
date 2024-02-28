@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Services.Abstractions;
 using Shared.DataTransferObjects;
+using Shared.Enums;
 using Shared.SettingsObjects;
 
 namespace Services;
@@ -16,22 +17,29 @@ public class UserService : IUserService
 {
     private readonly IRepositoryManager _repositoryManager;
     private readonly IOptionsMonitor<AdminLoginSettings> _adminLogin;
-    public UserService(IRepositoryManager repositoryManager, IOptionsMonitor<AdminLoginSettings> adminLogin)
+    private readonly ITokenProviderFactory _tokenProviderFactory;
+
+    public UserService(IRepositoryManager repositoryManager,
+                       IOptionsMonitor<AdminLoginSettings> adminLogin,
+                       ITokenProviderFactory tokenProviderFactory)
     {
+        _tokenProviderFactory = tokenProviderFactory;
         _adminLogin = adminLogin;
         _repositoryManager = repositoryManager;
     }
+
     public string Login(LoginDto login)
     {
-        if (IsAdmin(login)) return "Admin";
+        var user = _repositoryManager.UserRepository.GetUserByUsername(login.Username) ?? throw new Exception();
 
-        var barber = _repositoryManager.BarberRepository.GetByUsername(login.Username)
-                        ?? throw new Exception();
-
-        bool correctPassword = BCrypt.Net.BCrypt.Verify(barber.Password, login.Password);
+        bool correctPassword = BCrypt.Net.BCrypt.Verify(user.Password, login.Password);
         if (!correctPassword) throw new Exception();
 
-        throw new NotImplementedException();
+        ITokenProviderService tokenProvider;
+        if (user is Admin) tokenProvider = _tokenProviderFactory.GetTokenProviderService(Role.Admin);
+        else tokenProvider = _tokenProviderFactory.GetTokenProviderService(Role.Barber);
+
+        return tokenProvider.GenerateToken();
     }
 
     private bool IsAdmin(LoginDto login)
@@ -41,51 +49,4 @@ public class UserService : IUserService
 
         return true;
     }
-
-    private static string CreateAdminToken()
-    {
-        List<Claim> claims = new()
-        {
-            new("id", String.Empty),
-            new("username", "Administrator"),
-            new("role", "admin")
-        };
-
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("s3cret_k3y"));
-        var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-        var tokenOptions = new JwtSecurityToken(
-            issuer: "https://localhost:5001",
-            claims: claims,
-            expires: DateTime.Now.AddMinutes(10),
-            signingCredentials: signingCredentials
-        );
-
-        string tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-        return tokenString;
-    }
-
-    private static string CreateToken(Barber barber)
-    {
-        List<Claim> claims = new()
-        {
-            new("id", barber.Id.ToString()),
-            new("username", barber.Username.ToString()),
-            new("role", "barber")
-        };
-
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("s3cret_k3y"));
-        var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-        var tokenOptions = new JwtSecurityToken(
-            issuer: "https://localhost:5001",
-            claims: claims,
-            expires: DateTime.Now.AddMinutes(10),
-            signingCredentials: signingCredentials
-        );
-
-        string tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-        return tokenString;
-    }
-
 }

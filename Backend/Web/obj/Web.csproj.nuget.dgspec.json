@@ -263,6 +263,9 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
+              "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Domain\\Domain.csproj"
+              },
               "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Shared\\Shared.csproj": {
                 "projectPath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Shared\\Shared.csproj"
               }
@@ -328,9 +331,6 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Domain\\Domain.csproj"
-              },
               "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services.Abstractions\\Services.Abstractions.csproj": {
                 "projectPath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services.Abstractions\\Services.Abstractions.csproj"
               }

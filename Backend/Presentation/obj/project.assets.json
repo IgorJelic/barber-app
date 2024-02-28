@@ -461,10 +461,24 @@
           }
         }
       },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
       "Services.Abstractions/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "Domain": "1.0.0",
           "Shared": "1.0.0"
         },
         "compile": {
@@ -1025,6 +1039,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
     },
     "Services.Abstractions/1.0.0": {
       "type": "project",

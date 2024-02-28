@@ -1,12 +1,12 @@
 using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using Persistence.Configurations;
 using Persistence.Repository;
 using Presentation;
 using Services;
 using Services.Abstractions;
 using Shared.SettingsObjects;
+using Web.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -14,6 +14,7 @@ IWebHostEnvironment env = builder.Environment;
 const string _cors = "cors";
 
 // Add services to the container.
+
 
 builder.Services.AddControllers()
     .AddApplicationPart(typeof(PresentationAssemblyReference).Assembly);
@@ -31,14 +32,11 @@ builder.Services.AddDbContextPool<RepositoryDbContext>(builder =>
 // My Services
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 builder.Services.AddScoped<IServiceManager, ServiceManager>();
+builder.Services.AddTokenProviders();
+
 
 // Configurations
-builder.Services.Configure<PageSettings>(
-    builder.Configuration.GetSection("PageSettings")
-);
-builder.Services.Configure<AdminLoginSettings>(
-    builder.Configuration.GetSection("Admin")
-);
+builder.Services.AddConfigurations(configuration);
 
 
 // CORS

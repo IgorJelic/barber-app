@@ -5,6 +5,7 @@ namespace Persistence;
 
 public class RepositoryDbContext : DbContext
 {
+    public DbSet<Admin> Admins { get; set; }
     public DbSet<Barber> Barbers { get; set; }
     public DbSet<Appointment> Appointments { get; set; }
 

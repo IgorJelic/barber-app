@@ -8,10 +8,19 @@
     ".NETCoreApp,Version=v7.0": {
       "Services.Abstractions/1.0.0": {
         "dependencies": {
+          "Domain": "1.0.0",
           "Shared": "1.0.0"
         },
         "runtime": {
           "Services.Abstractions.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "dependencies": {
+          "Shared": "1.0.0"
+        },
+        "runtime": {
+          "Domain.dll": {}
         }
       },
       "Shared/1.0.0": {
@@ -23,6 +32,11 @@
   },
   "libraries": {
     "Services.Abstractions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

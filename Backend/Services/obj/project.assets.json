@@ -336,6 +336,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "Domain": "1.0.0",
           "Shared": "1.0.0"
         },
         "compile": {
@@ -1064,7 +1065,6 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "BCrypt.Net-Next >= 4.0.3",
-      "Domain >= 1.0.0",
       "Mapster >= 7.4.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 7.0.16",
       "Microsoft.Extensions.Options >= 7.0.1",
@@ -1079,11 +1079,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services\\Services.csproj",
+      "projectUniqueName": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services\\Services.csproj",
       "projectName": "Services",
-      "projectPath": "d:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services\\Services.csproj",
+      "projectPath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services\\Services.csproj",
       "packagesPath": "C:\\Users\\Igor\\.nuget\\packages\\",
-      "outputPath": "d:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services\\obj\\",
+      "outputPath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -1106,9 +1106,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Domain\\Domain.csproj"
-            },
             "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services.Abstractions\\Services.Abstractions.csproj": {
               "projectPath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Services.Abstractions\\Services.Abstractions.csproj"
             }

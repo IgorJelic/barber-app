@@ -258,8 +258,17 @@
       },
       "Microsoft.Extensions.Primitives/3.1.0": {},
       "System.Text.Json/4.7.2": {},
+      "Domain/1.0.0": {
+        "dependencies": {
+          "Shared": "1.0.0"
+        },
+        "runtime": {
+          "Domain.dll": {}
+        }
+      },
       "Services.Abstractions/1.0.0": {
         "dependencies": {
+          "Domain": "1.0.0",
           "Shared": "1.0.0"
         },
         "runtime": {
@@ -474,6 +483,11 @@
       "sha512": "sha512-TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
       "path": "system.text.json/4.7.2",
       "hashPath": "system.text.json.4.7.2.nupkg.sha512"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Services.Abstractions/1.0.0": {
       "type": "project",
