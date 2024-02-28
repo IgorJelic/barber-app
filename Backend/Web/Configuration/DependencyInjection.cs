@@ -23,10 +23,7 @@ public static class DependencyInjection
         services.Configure<PageSettings>(
             configuration.GetSection("PageSettings")
         );
-        services.Configure<AdminLoginSettings>(
-            configuration.GetSection("Admin")
-        );
-
+        
         return services;
     }
 }

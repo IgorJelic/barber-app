@@ -8,14 +8,11 @@ namespace Services;
 public class ServiceManager : IServiceManager
 {
     private readonly IRepositoryManager _repositoryManager;
-    private readonly IOptionsMonitor<AdminLoginSettings> _adminLogin;
     private readonly ITokenProviderFactory _tokenProviderFactory;
     public ServiceManager(IRepositoryManager repositoryManager,
-                          IOptionsMonitor<AdminLoginSettings> adminLogin,
                           ITokenProviderFactory tokenProviderFactory)
     {
         _tokenProviderFactory = tokenProviderFactory;
-        _adminLogin = adminLogin;
         _repositoryManager = repositoryManager;
     }
 

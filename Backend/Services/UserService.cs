@@ -16,15 +16,12 @@ namespace Services;
 public class UserService : IUserService
 {
     private readonly IRepositoryManager _repositoryManager;
-    private readonly IOptionsMonitor<AdminLoginSettings> _adminLogin;
     private readonly ITokenProviderFactory _tokenProviderFactory;
 
     public UserService(IRepositoryManager repositoryManager,
-                       IOptionsMonitor<AdminLoginSettings> adminLogin,
                        ITokenProviderFactory tokenProviderFactory)
     {
         _tokenProviderFactory = tokenProviderFactory;
-        _adminLogin = adminLogin;
         _repositoryManager = repositoryManager;
     }
 
@@ -40,13 +37,5 @@ public class UserService : IUserService
         else tokenProvider = _tokenProviderFactory.GetTokenProviderService(Role.Barber);
 
         return tokenProvider.GenerateToken();
-    }
-
-    private bool IsAdmin(LoginDto login)
-    {
-        if (!login.Username.Equals(_adminLogin.CurrentValue.Username)) return false;
-        if (!BCrypt.Net.BCrypt.Verify(login.Password, _adminLogin.CurrentValue.Password)) return false;
-
-        return true;
     }
 }
