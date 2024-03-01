@@ -1,3 +1,59 @@
+.flexWrapperRow, .flexWrapperColumn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.flexWrapperColumn{
+    flex-direction: column;
+}
+
+.inputGroup{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    padding: 10px 0;
+}
+
+
+.line{
+    width: 70%;
+    margin: 16px 0;
+}
+
+.button{
+    width: 70%;
+    margin: 0 auto;
+    padding: 4px 8px;
+    background-color: var(--primary-color-2);
+    color: var(--neutral-color) !important;
+    border: 1px solid var(--primary-color);
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: var(--primary-color-hover);
+    background-color: var(--highlight-color);
+    color: var(--white) !important;
+}
+
+.input{
+    padding: 4px 8px;
+    color: var(--primary-color-2) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input:focus::placeholder{
+    color: transparent;
+}
+
+/* Pagination Styles */
 .pagination{
     display: flex;
     gap: 20px;

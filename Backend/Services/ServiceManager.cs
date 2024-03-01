@@ -18,6 +18,6 @@ public class ServiceManager : IServiceManager
 
     public IBarberService BarberService => new BarberService(_repositoryManager);
     public IAppointmentService AppointmentService => new AppointmentService(_repositoryManager);
-    public IUserService UserService => new UserService(_repositoryManager, _adminLogin, _tokenProviderFactory);
+    public IUserService UserService => new UserService(_repositoryManager, _tokenProviderFactory);
 
 }
