@@ -15,10 +15,18 @@ public class UserController : ControllerBase
     }
 
     [HttpPost("login")]
-    public ActionResult<string> UserLogin([FromBody]LoginDto login)
+    public ActionResult<string> UserLogin([FromBody] LoginDto login)
     {
         var token = _serviceManager.UserService.Login(login);
 
         return Ok(token);
+    }
+
+    [HttpGet("password")]
+    public ActionResult<string> GetPassword()
+    {
+        var hashedPassword = BCrypt.Net.BCrypt.HashPassword("admin");
+
+        return Ok(hashedPassword);
     }
 }

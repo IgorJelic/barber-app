@@ -1671,6 +1671,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "App.Metrics.AspNetCore.Mvc.Core": "4.3.0",
+          "BCrypt.Net-Next": "4.0.3",
           "Services.Abstractions": "1.0.0",
           "Shared": "1.0.0"
         },

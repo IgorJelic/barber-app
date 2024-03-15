@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sHj/q5V7RJIwPX8Nc4p9jBUknFmdauyV9q7zggOyA12N/TQUUC+sH53YMVc+KSCFLIiiQb/1REdmt3xHrctT5g==",
+  "dgSpecHash": "2YH9wc7U/uhIzFTNkwDYHiXOfprXd2M8fYwIx9k3adQrTjRGFzC+KG8y5wyrRUJYLowgcnA0VZuUSz7mxSWcFg==",
   "success": true,
   "projectFilePath": "D:\\Igor\\Faks\\Projekti\\barber-app\\Backend\\Presentation\\Presentation.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\Igor\\.nuget\\packages\\app.metrics.extensions.hosting\\4.3.0\\app.metrics.extensions.hosting.4.3.0.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\app.metrics.formatters.ascii\\4.3.0\\app.metrics.formatters.ascii.4.3.0.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\app.metrics.formatters.json\\4.3.0\\app.metrics.formatters.json.4.3.0.nupkg.sha512",
+    "C:\\Users\\Igor\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.0.0\\microsoft.bcl.asyncinterfaces.1.0.0.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\microsoft.csharp\\4.4.0\\microsoft.csharp.4.4.0.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.0\\microsoft.extensions.configuration.3.1.0.nupkg.sha512",

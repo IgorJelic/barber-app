@@ -211,6 +211,10 @@
             "App.Metrics.AspNetCore.Mvc.Core": {
               "target": "Package",
               "version": "[4.3.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
             }
           },
           "imports": [

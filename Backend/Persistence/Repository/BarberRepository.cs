@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Shared.Enums;
 using Shared.FilterObjects;
+using Shared.Pagination;
 using Shared.SettingsObjects;
 
 namespace Persistence.Repository;
@@ -69,6 +70,12 @@ public class BarberRepository : IBarberRepository
 
         return (barbersCount, barbers.ToList());
     }
+
+    public PagedList<Barber> GetBarbers(BarberParameters? parameters = null)
+    {
+        throw new NotImplementedException();
+    }
+
 
     public Barber GetById(Guid barberId)
     {

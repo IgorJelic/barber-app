@@ -5,7 +5,6 @@ using Persistence.Repository;
 using Presentation;
 using Services;
 using Services.Abstractions;
-using Shared.SettingsObjects;
 using Web.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);

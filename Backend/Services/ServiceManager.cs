@@ -1,7 +1,5 @@
 using Domain.Repository;
-using Microsoft.Extensions.Options;
 using Services.Abstractions;
-using Shared.SettingsObjects;
 
 namespace Services;
 
