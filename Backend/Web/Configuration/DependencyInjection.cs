@@ -23,7 +23,18 @@ public static class DependencyInjection
         services.Configure<PageSettings>(
             configuration.GetSection("PageSettings")
         );
-        
+
         return services;
+    }
+
+    public static void ConfigureCors(this IServiceCollection services)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("CorsPolicy",
+                builder => builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod());
+        });
     }
 }

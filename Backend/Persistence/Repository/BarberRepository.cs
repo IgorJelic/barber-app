@@ -71,11 +71,17 @@ public class BarberRepository : IBarberRepository
         return (barbersCount, barbers.ToList());
     }
 
-    public PagedList<Barber> GetBarbers(BarberParameters? parameters = null)
+    public PagedList<Barber> GetBarbers(BarberParameters parameters)
     {
         throw new NotImplementedException();
     }
 
+    private void SearchByUsername(ref IQueryable<Barber> barbers, string barberUsername)
+    {
+        if (!barbers.Any() || string.IsNullOrWhiteSpace(barberUsername)) return;
+
+        barbers = barbers.Where(b => b.Username.ToLower().Contains(barberUsername.Trim().ToLower()));
+    }
 
     public Barber GetById(Guid barberId)
     {
